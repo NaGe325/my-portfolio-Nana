@@ -129,7 +129,7 @@ export async function generateMetadata({ params }: { params: Promise<{ name: str
     description: `I'm Na Ge, a CMU Master's student and Full Stack Engineer. I prepared this interactive resume specifically for ${rawName}.`,
     openGraph: {
       title: `Portfolio: Na Ge for ${rawName}`,
-      description: "CMU Grad | Java & Python Backend Engineer | Distributed Systems",
+      description: "CMU Grad Student majoring in information systems.",
       images: ['/og-image.jpg'], 
     },
   };
@@ -216,7 +216,7 @@ export default async function RecruiterPage({
 
             <p className="text-base md:text-lg text-gray-600 leading-relaxed max-w-2xl font-medium mb-8 relative z-10">
               I noticed you're hiring for <strong className="text-blue-600">{targetRole}</strong> at <strong className="text-gray-900">{displayCompany}</strong>. 
-              I am a builder at heart, combining CMU-level system design with hands-on expertise in <span className="text-gray-900 font-semibold">high-concurrency Java backends</span> and <span className="text-gray-900 font-semibold">scalable AI architectures</span>. 
+              I am a builder at heart, combining system design with hands-on expertise in <span className="text-gray-900 font-semibold">high-concurrency Java backends</span> and <span className="text-gray-900 font-semibold">scalable AI architectures</span>. 
               I don't just write code—I ship production-grade solutions that impact users.
             </p>
 
