@@ -290,13 +290,28 @@ export default async function RecruiterPage({
 
           </GlassCard>
 
-          {/* 右侧照片 - 修改后：手机端也能看到，且在卡片下方 */}
-         <div className="w-full md:w-[30%] flex flex-col gap-4 mt-6 md:mt-0">
-            {PROFILE.photos.map((photoUrl, index) => (
-              <GlassCard key={index} className="flex-1 min-h-[140px] !rounded-[24px] border border-white/80 shadow-md group">
-                <img src={photoUrl} alt={`Photo ${index + 1}`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-              </GlassCard>
-            ))}
+          {/* 右侧照片 - 修改版：手机只看第2张，电脑看全部 */}
+          <div className="w-full md:w-[30%] flex flex-col gap-4 mt-8 md:mt-0">
+             {PROFILE.photos.map((photoUrl, index) => {
+                // --- 核心修改逻辑开始 ---
+                // 判断当前是不是第二张照片（索引为 1）
+                const isSecondPhoto = index === 1;
+                
+                // 如果是第二张：手机电脑都显示 (flex)
+                // 如果不是第二张：手机隐藏 (hidden)，电脑显示 (md:flex)
+                const visibilityClass = isSecondPhoto ? "flex" : "hidden md:flex";
+                // --- 核心修改逻辑结束 ---
+
+                return (
+                  <GlassCard 
+                     key={index} 
+                     // 将上面计算好的 visibilityClass 加到这里的最前面
+                     className={`${visibilityClass} flex-1 min-h-[160px] md:min-h-[140px] !rounded-[24px] border border-white/80 shadow-md group`}
+                  >
+                     <img src={photoUrl} alt={`Photo ${index + 1}`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  </GlassCard>
+                )
+             })}
           </div>
         </section>
 
