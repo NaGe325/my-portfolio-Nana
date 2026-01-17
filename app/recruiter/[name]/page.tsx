@@ -290,13 +290,13 @@ export default async function RecruiterPage({
 
           </GlassCard>
 
-          {/* 右侧照片 */}
-          <div className="w-full md:w-[30%] hidden md:flex flex-col gap-4">
-             {PROFILE.photos.map((photoUrl, index) => (
-                <GlassCard key={index} className="flex-1 min-h-[140px] !rounded-[24px] border border-white/80 shadow-md group">
-                   <img src={photoUrl} alt={`Photo ${index + 1}`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                </GlassCard>
-             ))}
+          {/* 右侧照片 - 修改后：手机端也能看到，且在卡片下方 */}
+         <div className="w-full md:w-[30%] flex flex-col gap-4 mt-6 md:mt-0">
+            {PROFILE.photos.map((photoUrl, index) => (
+              <GlassCard key={index} className="flex-1 min-h-[140px] !rounded-[24px] border border-white/80 shadow-md group">
+                <img src={photoUrl} alt={`Photo ${index + 1}`} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+              </GlassCard>
+            ))}
           </div>
         </section>
 
